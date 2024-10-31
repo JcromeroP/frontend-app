@@ -13,7 +13,7 @@ const DecanoFacultad = () => {
   useEffect(() => {
     const fetchAgendas = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/decano/agentodecano/${idUsuario}`);
+        const response = await axios.get(`http://localhost:8080/api/dean/agenForDean/${idUsuario}`);
         const data = response.data;
         if (response.data.status === 200 || response.data.status === 201) {
           setAgendas(data.data);
@@ -90,7 +90,7 @@ const DecanoFacultad = () => {
       formData.append('decision', decision); 
       formData.append('idAgenda', agendaId);
   
-      const responseUpload = await axios.post("http://localhost:8080/api/decano/updatedecano", formData, {
+      const responseUpload = await axios.post("http://localhost:8080/api/dean/updateDean", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

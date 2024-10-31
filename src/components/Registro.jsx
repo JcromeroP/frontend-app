@@ -305,7 +305,7 @@ function Registro() {
                                         >
                                             <option disabled value="">Selecciona una facultad</option>
                                             {faculties.map((facultad) => (
-                                                <option key={facultad.facultadId} value={facultad.facultadId}>
+                                                <option key={facultad.facultyId} value={facultad.facultyId}>
                                                     {facultad.name}
                                                 </option>
                                             ))}

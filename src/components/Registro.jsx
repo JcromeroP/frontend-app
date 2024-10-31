@@ -26,7 +26,7 @@ function Registro() {
 
     const fetchFaculties = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/programa/facultades'); 
+            const response = await axios.get('http://localhost:8080/api/program/faculties'); 
             const data = response.data;
             setFaculties(data.data);
         } catch (error) {
@@ -42,7 +42,7 @@ function Registro() {
 
     const fetchProgramsByFaculty = async (facultadId) => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/programa/Programas?facultadId=${facultadId}`);
+            const response = await axios.get(`http://localhost:8080/api/Program/Programs?facultadId=${facultadId}`);
             const data = response.data;
             setPrograms(data.data); 
         } catch (error) {

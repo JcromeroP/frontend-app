@@ -48,8 +48,8 @@ const Login = () => {
           username: username,
           password: password,
         };
-
-        const response = await axios.post('http://ec2-18-189-202-101.us-east-2.compute.amazonaws.com:8081/api/login', loginData, {
+/* http://ec2-18-189-202-101.us-east-2.compute.amazonaws.com:8081*/
+        const response = await axios.post('http://localhost:8080/api/login', loginData, {
           headers: {
             'Content-Type': 'application/json',
           },

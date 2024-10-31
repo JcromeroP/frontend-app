@@ -10,7 +10,7 @@ const HistoricoDecano = () => {
   useEffect(() => {
     const fetchAgendas = async () => {  
       try {
-        const response = await axios.get(`http://localhost:8080/api/decano/historicoDecano/${userId}`);
+        const response = await axios.get(`http://localhost:8080/api/dean/historicalDean/${userId}`);
         const data = response.data;
         if (data.status === 200 && response.data !== null) {
           setAgendas(data.data);

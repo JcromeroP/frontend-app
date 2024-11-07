@@ -47,12 +47,12 @@ const GestionAdministrador = () => {
   return (
     <>
       <br />
-      <Container className="text-success text-start">
-        <h2>Gestión de Usuarios</h2>
+      <Container className="text-success text-start mt-4 p-5">
+        <h2>USUARIOS</h2>
       </Container>
 
       <Container>
-        <div>
+        <div className="p-1"> 
           <Table striped bordered hover>
             <thead>
               <tr>

@@ -42,7 +42,7 @@ function Registro() {
 
     const fetchProgramsByFaculty = async (facultadId) => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/Program/Programs?facultadId=${facultadId}`);
+            const response = await axios.get(`http://localhost:8080/api/program/Programs?facultadId=${facultadId}`);
             const data = response.data;
             setPrograms(data.data); 
         } catch (error) {
@@ -327,7 +327,7 @@ function Registro() {
                                             <option disabled value="">Selecciona un programa</option>
                                             {programs.map((program) => (
                                                 <option key={program.id} value={program.id}>
-                                                    {program.nombre}
+                                                    {program.name}
                                                 </option>
                                             ))}
                                         </Input>

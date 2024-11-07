@@ -31,9 +31,9 @@ function Navbarnew() {
 
   return (
     <>
-      <Navbar style={navbarStyles} className="fixed-top">
+      <Navbar style={navbarStyles} className="custom-navbar">
         <Navbar.Brand as={Link} to="/Home">
-          <img style={logoStyles} alt="logo" src={logoCorhuila} />
+          <img style={logoStyles} alt="logo" className='logo' src={logoCorhuila} />
         </Navbar.Brand>
 
         {showfordocente && (
@@ -75,10 +75,7 @@ function Navbarnew() {
           id="basic-nav-dropdown"
           flip
         >
-          <NavDropdown.Item href="#action/3.1">Perfil</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-          <NavDropdown.Divider />
+        
           <NavDropdown.Item href="/">Cerrar Sesión</NavDropdown.Item>
         </NavDropdown>
       </Navbar>

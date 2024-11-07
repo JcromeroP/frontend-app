@@ -868,52 +868,53 @@ const handleDownload = async () => {
     worksheet.getCell('B8').value = dataDocente[0].fecha;
     worksheet.getCell('F8').value = dataDocente[0].periodo;
     // mapeo Orientación de Clases  					
-    worksheet.getCell('A14').value = parseFloat(data[0].asignatura);  
-    worksheet.getCell('C14').value = parseFloat(data[0].programa);  
-    worksheet.getCell('D14').value = parseFloat(data[0].grupo);
-    worksheet.getCell('E14').value = parseFloat(data[0].sede);  		
-    worksheet.getCell('F14').value = parseFloat(data[0].dedicacionHorasSemanales);  
-   
-    worksheet.getCell('A15').value = parseFloat(data[1].asignatura);  
-    worksheet.getCell('C15').value = parseFloat(data[1].programa);  
-    worksheet.getCell('D15').value = parseFloat(data[1].grupo);
-    worksheet.getCell('E15').value = parseFloat(data[1].sede);  
+    worksheet.getCell('A14').value = isNaN(data[0].asignatura) ? data[0].asignatura : parseFloat(data[0].asignatura);  
+    worksheet.getCell('C14').value = isNaN(data[0].programa) ? data[0].programa : parseFloat(data[0].programa);  
+    worksheet.getCell('D14').value = isNaN(data[0].grupo) ? data[0].grupo : parseFloat(data[0].grupo); 
+    worksheet.getCell('E14').value = isNaN(data[0].sede) ? data[0].sede : parseFloat(data[0].sede); 
+    worksheet.getCell('F14').value = parseFloat(data[0].dedicacionHorasSemanales);
+    
+    worksheet.getCell('A15').value = isNaN(data[1].asignatura) ? data[1].asignatura : parseFloat(data[1].asignatura);  
+    worksheet.getCell('C15').value = isNaN(data[1].programa) ? data[1].programa : parseFloat(data[1].programa);  
+    worksheet.getCell('D15').value = isNaN(data[1].grupo) ? data[1].grupo : parseFloat(data[1].grupo); 
+    worksheet.getCell('E15').value = isNaN(data[1].sede) ? data[1].sede : parseFloat(data[1].sede); 
     worksheet.getCell('F15').value = parseFloat(data[1].dedicacionHorasSemanales);
-
-    worksheet.getCell('A16').value = parseFloat(data[2].asignatura);  
-    worksheet.getCell('C16').value = parseFloat(data[2].programa);  
-    worksheet.getCell('D16').value = parseFloat(data[2].grupo);
-    worksheet.getCell('E16').value = parseFloat(data[2].sede);  
+   
+    worksheet.getCell('A16').value = isNaN(data[2].asignatura) ? data[2].asignatura : parseFloat(data[2].asignatura);  
+    worksheet.getCell('C16').value = isNaN(data[2].programa) ? data[2].programa : parseFloat(data[2].programa);  
+    worksheet.getCell('D16').value = isNaN(data[2].grupo) ? data[2].grupo : parseFloat(data[2].grupo); 
+    worksheet.getCell('E16').value = isNaN(data[2].sede) ? data[2].sede : parseFloat(data[2].sede); 
     worksheet.getCell('F16').value = parseFloat(data[2].dedicacionHorasSemanales);
 
-    worksheet.getCell('A17').value = parseFloat(data[3].asignatura);  
-    worksheet.getCell('C17').value = parseFloat(data[3].programa);  
-    worksheet.getCell('D17').value = parseFloat(data[3].grupo);
-    worksheet.getCell('E17').value = parseFloat(data[3].sede);  
+    worksheet.getCell('A17').value = isNaN(data[3].asignatura) ? data[3].asignatura : parseFloat(data[3].asignatura);  
+    worksheet.getCell('C17').value = isNaN(data[3].programa) ? data[3].programa : parseFloat(data[3].programa);  
+    worksheet.getCell('D17').value = isNaN(data[3].grupo) ? data[3].grupo : parseFloat(data[3].grupo); 
+    worksheet.getCell('E17').value = isNaN(data[3].sede) ? data[3].sede : parseFloat(data[3].sede); 
     worksheet.getCell('F17').value = parseFloat(data[3].dedicacionHorasSemanales);
 
-    worksheet.getCell('A18').value = parseFloat(data[4].asignatura);  
-    worksheet.getCell('C18').value = parseFloat(data[4].programa);  
-    worksheet.getCell('D18').value = parseFloat(data[4].grupo);
-    worksheet.getCell('E18').value = parseFloat(data[4].sede);  
-    worksheet.getCell('F18').value = parseFloat(data[4].dedicacionHorasSemanales);    
+    worksheet.getCell('A18').value = isNaN(data[4].asignatura) ? data[4].asignatura : parseFloat(data[4].asignatura);  
+    worksheet.getCell('C18').value = isNaN(data[4].programa) ? data[4].programa : parseFloat(data[4].programa);  
+    worksheet.getCell('D18').value = isNaN(data[4].grupo) ? data[4].grupo : parseFloat(data[4].grupo); 
+    worksheet.getCell('E18').value = isNaN(data[4].sede) ? data[4].sede : parseFloat(data[4].sede); 
+    worksheet.getCell('F18').value = parseFloat(data[4].dedicacionHorasSemanales);
 
-    worksheet.getCell('A19').value = parseFloat(data[5].asignatura);  
-    worksheet.getCell('C19').value = parseFloat(data[5].programa);  
-    worksheet.getCell('D19').value = parseFloat(data[5].grupo);
-    worksheet.getCell('E19').value = parseFloat(data[5].sede);  
-    worksheet.getCell('F19').value = parseFloat(data[5].dedicacionHorasSemanales);   
-
+    worksheet.getCell('A19').value = isNaN(data[5].asignatura) ? data[5].asignatura : parseFloat(data[5].asignatura);  
+    worksheet.getCell('C19').value = isNaN(data[5].programa) ? data[5].programa : parseFloat(data[5].programa);  
+    worksheet.getCell('D19').value = isNaN(data[5].grupo) ? data[5].grupo : parseFloat(data[5].grupo); 
+    worksheet.getCell('E19').value = isNaN(data[5].sede) ? data[5].sede : parseFloat(data[5].sede); 
+    worksheet.getCell('F19').value = parseFloat(data[5].dedicacionHorasSemanales);
+ 
     //academicas sin formulas 
-    worksheet.getCell('F24').value = parseFloat(dataAcademicas[0].descripcionAca);   
-    worksheet.getCell('F25').value = parseFloat(dataAcademicas[1].descripcionAca);   
-    worksheet.getCell('F26').value = parseFloat(dataAcademicas[2].descripcionAca);   
+    worksheet.getCell('F24').value = isNaN(dataAcademicas[0].descripcionAca) ? dataAcademicas[0].descripcionAca : parseFloat(dataAcademicas[0].descripcionAca); 
+    worksheet.getCell('F25').value = isNaN(dataAcademicas[1].descripcionAca) ? dataAcademicas[1].descripcionAca : parseFloat(dataAcademicas[1].descripcionAca); 
+    worksheet.getCell('F26').value = isNaN(dataAcademicas[2].descripcionAca) ? dataAcademicas[2].descripcionAca : parseFloat(dataAcademicas[2].descripcionAca); 
     
     worksheet.getCell('D26').value = parseFloat(dataAcademicas[2].dedicacionSemanalAca);   
+
     //formativas sin formulas
-    worksheet.getCell('F28').value = parseFloat(dataFormativas[0].descripcionFor);
-    worksheet.getCell('F29').value = parseFloat(dataFormativas[1].descripcionFor);
-    worksheet.getCell('F30').value = parseFloat(dataFormativas[2].descripcionFor);
+    worksheet.getCell('F28').value = isNaN(dataFormativas[0].descripcionFor) ? dataFormativas[0].descripcionFor : parseFloat(dataFormativas[0].descripcionFor); 
+    worksheet.getCell('F29').value = isNaN(dataFormativas[1].descripcionFor) ? dataFormativas[1].descripcionFor : parseFloat(dataFormativas[1].descripcionFor); 
+    worksheet.getCell('F30').value = isNaN(dataFormativas[2].descripcionFor) ? dataFormativas[2].descripcionFor : parseFloat(dataFormativas[2].descripcionFor); 
 
     worksheet.getCell('D29').value = parseFloat(dataFormativas[1].dedicacionSemanalFor);   
     worksheet.getCell('D30').value = parseFloat(dataFormativas[2].dedicacionSemanalFor);   

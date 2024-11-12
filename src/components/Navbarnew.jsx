@@ -5,6 +5,7 @@ import iconUser from '../vectores/person-circle.svg';
 import { Link } from 'react-router-dom';
 import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
 
+
 function Navbarnew() {
   const role = localStorage.getItem('role');
   const showfordocente = role === 'Docente';

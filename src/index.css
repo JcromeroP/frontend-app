@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*///Vector HomeDocente///*/
+.home-docente-content {
+  display: flex;
+  flex-direction: column; /* Alinea los elementos de forma vertical */
+}
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinea el contenido al inicio */
+  margin-top: 10px; /* Espacio entre el título y el contenido */
+}
+
+.text-content {
+  flex: 1; /* El texto ocupa el espacio necesario */
+  margin-right: auto; /* Espaciado entre el texto y la imagen */
+  max-height: 500px; /* Ajusta esta altura según sea necesario */
+  padding: 10px; /* Agrega espacio interno para mejor visualización */
+}
+
+.image-content {
+  flex-shrink: 0; /* Evita que la imagen se reduzca más allá de su tamaño */
+  margin-bottom: 10px;
+}
+
+.docente-vector {
+  width: 400px; /* Ajusta el tamaño de la imagen */
+  height: auto; /* Mantiene las proporciones de la imagen */
+}
+.docente-vector-lista {
+  width: 500px; /* Ajusta el tamaño de la imagen */
+  height: auto; /* Mantiene las proporciones de la imagen */
+}
+

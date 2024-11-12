@@ -120,7 +120,7 @@ const DirectorPrograma = () => {
   };
     return (
     <div style={styles.page}>
-      <h2 style={styles.title}>Agendas Por Aprobar del Director {name}</h2>
+      <h2 style={styles.title}>Agendas Por Aprobar del Decano {name}</h2>
       <table style={styles.table}>
         <thead>
           <tr style={styles.headerRow}>

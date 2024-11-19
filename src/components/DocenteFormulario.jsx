@@ -20,7 +20,7 @@ const AgendaForm = () => {
     const datosGuardados = localStorage.getItem('dataDocente');
     return datosGuardados ? JSON.parse(datosGuardados) : [
       {
-        profesor: '' ,
+        profesor: '',
         facultad: '',
         programa: '',
         fecha: '',
@@ -43,7 +43,7 @@ const AgendaForm = () => {
               actividadFor: "Acompañamiento académico a estudiantes",
               dedicacionSemanalFor: 0,
               dedicacionSemestreFor: 0,
-              descripcionFor: "Acompañamiento académico",
+              descripcionFor: "Descripción de la actividad",
               productoFor: 
               `✓ TRES REPORTES SOBRE EL DESARROLLO, AVANCES Y RESULTADOS DEL ACOMPAÑAMIENTO REALIZADO A ESTUDIANTES, ENTREGADOS EN LAS FECHAS ESTABLECIDAS POR EL COMITÉ DE CURRÍCULO Y ASEGURAMIENTO DE LA CALIDAD
               ✓ SOPORTE DE LAS REMISIONES DE ESTUDIANTES`,
@@ -52,7 +52,7 @@ const AgendaForm = () => {
               actividadFor: "Cursos de fortalecimiento dirigido a estudiantes",
               dedicacionSemanalFor: 0,
               dedicacionSemestreFor: 0,
-              descripcionFor: "Actividad evaluación",
+              descripcionFor: "Descripción de la actividad",
               productoFor: 
               `✓ INFORME EJECUTIVO DEL DESARROLLO DE LA ACTIVIDAD
               ✓ LISTADO DE ASISTENCIA
@@ -63,7 +63,7 @@ const AgendaForm = () => {
               actividadFor: "Asesoría en emprendimiento",
               dedicacionSemanalFor: 0,
               dedicacionSemestreFor: 0,
-              descripcionFor: "Actividad gestión de eventos",
+              descripcionFor: "Descripción de la actividad",
               productoFor: 
               `✓ INFORME EJECUTIVO DEL DESARROLLO DE LA ACTIVIDAD
               ✓ MATERIAL DE APOYO
@@ -82,7 +82,7 @@ const AgendaForm = () => {
               actividadCien: "Gestión de semilleros de investigación",
               dedicacionSemanalCien: 0,
               dedicacionSemestreCien: 0,
-              descripcionCien: "Actividad evaluación",
+              descripcionCien: "Descripción de la actividad",
               productoCien:
                 `✓ INFORME DE GESTIÓN REALIZADA DURANTE EL PERIODO ACADÉMICO
                 ✓ AGENDAS Y/O ACTAS
@@ -94,7 +94,7 @@ const AgendaForm = () => {
               actividadCien: "Elaboración de propuestas para convocatorias de CTeI",
               dedicacionSemanalCien: 0,
               dedicacionSemestreCien: 0,
-              descripcionCien: "Actividad gestión de eventos",
+              descripcionCien: "Descripción de la actividad",
               productoCien:
                 `✓ PROPUESTA PARA CONVOCATORIA INTERNA`,
             },
@@ -102,7 +102,7 @@ const AgendaForm = () => {
               actividadCien: "Gestión de proyectos de investigación en CTeI",
               dedicacionSemanalCien: 0,
               dedicacionSemestreCien: 0,
-              descripcionCien: "Actividad gestión de eventos",
+              descripcionCien: "Descripción de la actividad",
               productoCien:
                 `✓ PROYECTOS EN EJECUCIÓN: INFORMES PARCIALES
                 ✓ PROYECTOS FINALIZADOS: INFORME FINAL TÉCNICO Y FINANCIERO
@@ -116,7 +116,7 @@ const AgendaForm = () => {
               actividadCien: "Dirección de grupos de investigación",
               dedicacionSemanalCien: 0,
               dedicacionSemestreCien: 0,
-              descripcionCien: "Actividad gestión de eventos",
+              descripcionCien: "Descripción de la actividad",
               productoCien:
                 `✓ INFORME DE GESTIÓN REALIZADA DURANTE EL PERIODO ACADÉMICO
                 ✓ AGENDAS Y/O ACTAS
@@ -361,7 +361,7 @@ const AgendaForm = () => {
             actividadAca: 'Preparación de clases',
             dedicacionSemanalAca: 0,
             dedicacionSemestreAca: 0,
-            descripcionAca: 'Actividad preparar clase',
+            descripcionAca: 'Descripción de la actividad',
             productoAca: '✓ MATERIAL EDUCATIVO, ✓ SYLLABUS DE LA ASIGNATURA...',
           },
           {
@@ -862,7 +862,7 @@ const handleDownload = async () => {
     const worksheet = workbook.getWorksheet(1);
 
     //datos docente 
-    worksheet.getCell('C6').value = dataDocente[0].profesor;
+    worksheet.getCell('C6').value = localStorage.getItem("name");
     worksheet.getCell('B7').value = localStorage.getItem("facultad");
     worksheet.getCell('F7').value = localStorage.getItem("programa");    
     worksheet.getCell('B8').value = dataDocente[0].fecha;
@@ -920,11 +920,11 @@ const handleDownload = async () => {
     worksheet.getCell('D30').value = parseFloat(dataFormativas[2].dedicacionSemanalFor);   
 
     //cientificas sin formulas
-    worksheet.getCell('F35').value = parseFloat(dataCientificas[0].descripcionCien);
-    worksheet.getCell('F36').value = parseFloat(dataCientificas[1].descripcionCien);
-    worksheet.getCell('F37').value = parseFloat(dataCientificas[2].descripcionCien);
-    worksheet.getCell('F38').value = parseFloat(dataCientificas[3].descripcionCien);
-    worksheet.getCell('F39').value = parseFloat(dataCientificas[4].descripcionCien);
+    worksheet.getCell('F35').value = isNaN(dataCientificas[0].descripcionCien) ? dataCientificas[0].descripcionCien : parseFloat(dataCientificas[0].descripcionCien); 
+    worksheet.getCell('F36').value = isNaN(dataCientificas[1].descripcionCien) ? dataCientificas[1].descripcionCien : parseFloat(dataCientificas[1].descripcionCien); 
+    worksheet.getCell('F37').value = isNaN(dataCientificas[2].descripcionCien) ? dataCientificas[2].descripcionCien : parseFloat(dataCientificas[2].descripcionCien); 
+    worksheet.getCell('F38').value = isNaN(dataCientificas[3].descripcionCien) ? dataCientificas[3].descripcionCien : parseFloat(dataCientificas[3].descripcionCien); 
+    worksheet.getCell('F39').value = isNaN(dataCientificas[4].descripcionCien) ? dataCientificas[4].descripcionCien : parseFloat(dataCientificas[4].descripcionCien); 
 
     worksheet.getCell('D35').value = parseFloat(dataCientificas[0].dedicacionSemanalCien);   
     worksheet.getCell('D36').value = parseFloat(dataCientificas[1].dedicacionSemanalCien);
@@ -933,34 +933,34 @@ const handleDownload = async () => {
     worksheet.getCell('D39').value = parseFloat(dataCientificas[4].dedicacionSemanalCien);
 
     //extension sin formulas
-    worksheet.getCell('F45').value = parseFloat(dataExtension[0].descripcionExt);
-    worksheet.getCell('F46').value = parseFloat(dataExtension[1].descripcionExt);
-    worksheet.getCell('F47').value = parseFloat(dataExtension[2].descripcionExt);
+    worksheet.getCell('F45').value = isNaN(dataExtension[0].descripcionExt) ? dataExtension[0].descripcionExt : parseFloat(dataExtension[0].descripcionExt); 
+    worksheet.getCell('F46').value = isNaN(dataExtension[1].descripcionExt) ? dataExtension[1].descripcionExt : parseFloat(dataExtension[1].descripcionExt);
+    worksheet.getCell('F47').value = isNaN(dataExtension[2].descripcionExt) ? dataExtension[2].descripcionExt : parseFloat(dataExtension[2].descripcionExt);
 
     worksheet.getCell('D45').value = parseFloat(dataExtension[0].dedicacionSemanalExt);
     worksheet.getCell('D46').value = parseFloat(dataExtension[1].dedicacionSemanalExt);
     worksheet.getCell('D47').value = parseFloat(dataExtension[2].dedicacionSemanalExt);
     
     //culutural sin formulas
-    worksheet.getCell('F49').value = parseFloat(dataCulturales[0].descripcionCult);
-    worksheet.getCell('F50').value = parseFloat(dataCulturales[1].descripcionCult);
-    worksheet.getCell('F51').value = parseFloat(dataCulturales[2].descripcionCult);
+    worksheet.getCell('F49').value = isNaN(dataCulturales[0].descripcionCult) ? dataCulturales[0].descripcionCult : parseFloat(dataCulturales[0].descripcionCult);
+    worksheet.getCell('F50').value = isNaN(dataCulturales[1].descripcionCult) ? dataCulturales[1].descripcionCult : parseFloat(dataCulturales[1].descripcionCult);
+    worksheet.getCell('F51').value = isNaN(dataCulturales[2].descripcionCult) ? dataCulturales[2].descripcionCult : parseFloat(dataCulturales[2].descripcionCult);
 
     worksheet.getCell('D49').value = parseFloat(dataCulturales[0].dedicacionSemanalCult);
     worksheet.getCell('D50').value = parseFloat(dataCulturales[1].dedicacionSemanalCult);
     worksheet.getCell('D51').value = parseFloat(dataCulturales[2].dedicacionSemanalCult);
     //administriva sin formulas 
-    worksheet.getCell('F57').value = parseFloat(dataGestion[0].descripcionGest);
-    worksheet.getCell('F58').value = parseFloat(dataGestion[1].descripcionGest);
-    worksheet.getCell('F59').value = parseFloat(dataGestion[2].descripcionGest);
-    worksheet.getCell('F60').value = parseFloat(dataGestion[3].descripcionGest);
-    worksheet.getCell('F61').value = parseFloat(dataGestion[4].descripcionGest);
-    worksheet.getCell('F62').value = parseFloat(dataGestion[5].descripcionGest);
-    worksheet.getCell('F63').value = parseFloat(dataGestion[6].descripcionGest);
-    worksheet.getCell('F64').value = parseFloat(dataGestion[7].descripcionGest);
-    worksheet.getCell('F65').value = parseFloat(dataGestion[8].descripcionGest);
-    worksheet.getCell('F66').value = parseFloat(dataGestion[9].descripcionGest);
-    worksheet.getCell('F67').value = parseFloat(dataGestion[10].descripcionGest);
+    worksheet.getCell('F57').value = isNaN(dataGestion[0].descripcionGest) ? dataGestion[0].descripcionGest : parseFloat(dataGestion[0].descripcionGest);
+    worksheet.getCell('F58').value = isNaN(dataGestion[1].descripcionGest) ? dataGestion[1].descripcionGest : parseFloat(dataGestion[1].descripcionGest);
+    worksheet.getCell('F59').value = isNaN(dataGestion[2].descripcionGest) ? dataGestion[2].descripcionGest : parseFloat(dataGestion[2].descripcionGest);
+    worksheet.getCell('F60').value = isNaN(dataGestion[3].descripcionGest) ? dataGestion[3].descripcionGest : parseFloat(dataGestion[3].descripcionGest);
+    worksheet.getCell('F61').value = isNaN(dataGestion[4].descripcionGest) ? dataGestion[4].descripcionGest : parseFloat(dataGestion[4].descripcionGest);
+    worksheet.getCell('F62').value = isNaN(dataGestion[5].descripcionGest) ? dataGestion[5].descripcionGest : parseFloat(dataGestion[5].descripcionGest);
+    worksheet.getCell('F63').value = isNaN(dataGestion[6].descripcionGest) ? dataGestion[6].descripcionGest : parseFloat(dataGestion[6].descripcionGest);
+    worksheet.getCell('F64').value = isNaN(dataGestion[7].descripcionGest) ? dataGestion[7].descripcionGest : parseFloat(dataGestion[7].descripcionGest);
+    worksheet.getCell('F65').value = isNaN(dataGestion[8].descripcionGest) ? dataGestion[8].descripcionGest : parseFloat(dataGestion[8].descripcionGest);
+    worksheet.getCell('F66').value = isNaN(dataGestion[9].descripcionGest) ? dataGestion[9].descripcionGest : parseFloat(dataGestion[9].descripcionGest);
+    worksheet.getCell('F67').value = isNaN(dataGestion[10].descripcionGest) ? dataGestion[10].descripcionGest : parseFloat(dataGestion[10].descripcionGest);
 
 
     worksheet.getCell('D57').value = parseFloat(dataGestion[0].dedicacionSemanalGest);
@@ -979,14 +979,15 @@ const handleDownload = async () => {
     
     const modifiedBuffer = await workbook.xlsx.writeBuffer();
     const blob = new Blob([modifiedBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-    saveAs(blob, "Agenda"+localStorage.getItem('name')+".xlsx");
+    saveAs(blob, "Agenda "+localStorage.getItem('name')+".xlsx");
 
     const userid = localStorage.getItem('idUser');
 
 
     const formData = new FormData();
-    formData.append("file", new File([modifiedBuffer], "Agenda"+localStorage.getItem('name')+".xlsx", { type: blob.type }));
+    formData.append("file", new File([modifiedBuffer], "Agenda "+localStorage.getItem('name')+".xlsx", { type: blob.type }));
     formData.append("userId", userid);
+    formData.append('name', dataDocente[0].name);
     formData.append('facultad' ,dataDocente[0].facultad);
     formData.append('programa', dataDocente[0].programa)
 
@@ -1011,7 +1012,7 @@ navigate("/AgendasDocente");
 
 const handleLimpiar = () => {
   setDataDocente(dataDocente.map(item => ({
-    profesor: "",
+    name: "",
     facultad: "",
     programa: "",
     fecha: "",
@@ -1227,14 +1228,8 @@ const handleChange = (index, name, value) => {
       type="text"
       value={localStorage.getItem('name')}
       disabled
-      onChange={(e) => {
-        const value = e.target.value;
-        const regex = /^[A-Za-z\s]*$/;
-        if (regex.test(value) || value === '') { 
-          handleInputChangeDocente(index, 'profesor', value);
-        }
-      }}
-    />
+    >
+    </Input>
   </FormGroup>
                       </td>
                       <td>
@@ -1391,8 +1386,12 @@ value={localStorage.getItem('programa')}
                     }
                   >
                     <option value="">Seleccionar</option>
-                    <option value="Sistemas Distribuidos">Sistemas Distribuidos</option>
-                    <option value="Arquitectura de Computadores">Arquitectura de Computadores</option>
+                    <option value="Sistemas distribuidos">Sistemas Distribuidos</option>
+                    <option value="Auditoría de sistemas informaticas">Auditoría de Sistemas Informaticas</option>
+                    <option value="Constitución política">Constitución Política</option>
+                    <option value="Electiva II: Excel Avanzado">Electiva II: Excel Avanzado</option>
+                    <option value="Fundamentos de Administración">Fundamentos de Administración</option>
+                    <option value="Formulación y evaluación de proyectos">Formulación y evaluación de proyectos</option>
                   </Input>
                 </FormGroup>
                       </td>
@@ -1408,7 +1407,11 @@ value={localStorage.getItem('programa')}
                   >
                     <option value="">Seleccionar</option>
                     <option value="Ingeniería de Sistemas">Ingeniería de Sistemas</option>
-                    <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+                    <option value="Ingeniería en Energías Renovables">Ingeniería en Energías Renovables</option>
+                    <option value="Ingeniería Mecatrónica">Ingeniería Mecatrónica</option>
+                    <option value="Ingeniería Industrial">Ingeniería Industrial</option> 
+                    <option value="Ingeniería Ambiental">Ingeniería Ambiental</option>
+                    
 
                   </Input>
                 </FormGroup>
@@ -1424,7 +1427,10 @@ value={localStorage.getItem('programa')}
                     }
                   >
                     <option value="">Seleccionar</option>
+                    <option value="17A">17A</option>
+                    <option value="40D">40D</option>
                     <option value="90A">90A</option>
+                    <option value="80B">80B</option>
                     <option value="90B">90B</option>
                   </Input>
                 </FormGroup>
@@ -1440,8 +1446,9 @@ value={localStorage.getItem('programa')}
                     }
                   >
                     <option value="">Seleccionar</option>
-                    <option value="Sede Principal">Sede Principal Quirinal</option>
-                    <option value="Campus Norte">Campus Norte Prado Alto</option>
+                    <option value="Sede Principal Quirinal">Sede Principal Quirinal</option>
+                    <option value="Campus Norte Prado Alto">Campus Norte Prado Alto</option>
+                    
                   </Input>
                 </FormGroup>
                       </td>

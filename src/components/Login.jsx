@@ -64,7 +64,7 @@ const Login = () => {
     localStorage.setItem('role', decodedToken.role);
 
     if (userRole === 'Docente') {
-      navigate("/AgendasDocente"); 
+      navigate("/Home"); 
     }
     if (userRole === 'Admin') {
       navigate("/Administracion");
